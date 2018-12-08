@@ -7,7 +7,7 @@ jobs:
       - run:
           name: Deploy Over SSH
           command: |
-            ssh $SSH_USER@$SSH_HOST "/home/ec2-user/isucon8-final/shell/deploy.sh"
+            ssh $SSH_USER@$SSH_HOST "/home/ec2-user/isucon08-final/shell/deploy.sh"
 
 workflows:
   version: 2
