@@ -1,0 +1,16 @@
+version: 2
+jobs:
+  build:
+    machine:
+      enabled: true
+    steps:
+      - run:
+          name: Deploy Over SSH
+          command: |
+            ssh $SSH_USER@$SSH_HOST "/home/ec2-user/isucon8-final/shell/deploy.sh"
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build
