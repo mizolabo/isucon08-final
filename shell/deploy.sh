@@ -2,7 +2,7 @@
 
 set -eu
 
-echo 'deploy start...' | /home/ec2-user/isucon8-final/shell/slack.sh 
+echo 'deploy start!!!' | /home/ec2-user/isucon8-final/shell/slack.sh 
 
 # git
 cd /home/ec2-user/isucon8-final
