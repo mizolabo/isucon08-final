@@ -9,6 +9,8 @@ services:
     working_dir: /go/src/isucon8/isucoin
     volumes:
       - ./go/src/isucon8:/go/src/isucon8
+    ports:
+      - "6060:6060"
 
 volumes:
   gopath:

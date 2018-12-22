@@ -9,6 +9,8 @@ import (
 	"os"
 	"time"
 
+	_ "net/http/pprof"
+
 	gctx "github.com/gorilla/context"
 	"github.com/gorilla/sessions"
 	"github.com/julienschmidt/httprouter"
@@ -44,6 +46,10 @@ func main() {
 		dbname = getEnv("DB_NAME", "isucoin")
 		public = getEnv("PUBLIC_DIR", "public")
 	)
+
+	go func() {
+        log.Println(http.ListenAndServe(":6060", nil))
+    }()
 
 	dbusrpass := dbuser
 	if dbpass != "" {

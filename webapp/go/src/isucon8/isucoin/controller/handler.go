@@ -27,6 +27,8 @@ type Handler struct {
 	store sessions.Store
 }
 
+
+
 func NewHandler(db *sql.DB, store sessions.Store) *Handler {
 	// ISUCON用初期データの基準時間です
 	// この時間以降のデータはInitializeで削除されます
