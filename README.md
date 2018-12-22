@@ -109,7 +109,7 @@ docker-compose -f webapp/docker-compose.yml -f webapp/docker-compose.php.yml up 
 
 ### webappの言語実装を切り替える場合
 
-一度downしてからbuildしてupし直します 
+一度downしてからbuildしてupし直します
 
 例: go→perl
 ```
@@ -161,4 +161,43 @@ make build
     -log=/path/to/stderr.log
 ```
 
-※ *.flying-chair.net 等のドメインの維持は保証しません
+※ *.flying-chair.net 等のドメインの維持は保証しません*
+
+---
+
+## Appendix mizolabo
+
+### プロファイリング
+
+pprofを使用したwebサービスの稼働状況のプロファイリングが可能
+ベンチマークを実行後、以下のコマンドを実行する
+
+```
+go tool pprof http://localhost:6060/debug/pprof/profile
+# exitで抜ける
+```
+
+作成されたファイルを見やすくするために画像に変換する
+
+```
+go tool pprof -png ~/pprof/pprof.main.samples.cpu.001.pb.gz > pprof.png
+# 001の部分は実行毎にインクリメントされていく
+```
+
+### ベンチマークのmakeが動かない時
+
+以下のコマンドを実行
+
+```
+export DEPNOLOCK=1
+```
+
+### vagrantのマウント共有がエラーになる時
+
+ローカルで以下のコマンドを実行
+
+```
+vagrant plugin install vagrant-vbguest
+vagrant vbguest
+vagrant reload
+```
