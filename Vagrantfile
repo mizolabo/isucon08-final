@@ -5,19 +5,19 @@ Vagrant.configure("2") do |config|
 
   config.vm.network "private_network", ip: "192.168.33.10"
 
-  config.vm.synced_folder "C:/isukon/8/local/isucon08-final", "/home/vagrant/isucon08-final"
+  config.vm.synced_folder "{自身のローカルフォルダを指定}", "/home/vagrant/isucon08-final"
 
   config.vm.provision "shell", inline: <<-SHELL
 
   # docker innstall&setup
     echo '---------------yum update start---------------'
-    yum -y update 
+    yum -y update
     echo '---------------docker-tool install start---------------'
     yum -y install lvm2 device-mapper device-mapper-persistent-data device-mapper-event device-mapper-libs device-mapper-event-libs
     echo '---------------docker repositories get start---------------'
     wget https://download.docker.com/linux/centos/docker-ce.repo -O /etc/yum.repos.d/docker-ce.repo
     echo '---------------docker install start---------------'
-    yum -y install docker-ce-18.03.1.ce-1.el7.centos.x86_64 
+    yum -y install docker-ce-18.03.1.ce-1.el7.centos.x86_64
     echo '---------------vagrant user add start---------------'
     usermod -aG docker vagrant
     echo '---------------docker service start---------------'
@@ -35,7 +35,7 @@ Vagrant.configure("2") do |config|
     echo '---------------epel-release install start ---------------'
     yum -y install epel-release
     echo '---------------go install start ---------------'
-    yum -y install go 
+    yum -y install go
     echo '---------------pprof install or update start ---------------'
     go get -u github.com/google/pprof
     echo '---------------graphviz install start ---------------'

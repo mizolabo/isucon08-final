@@ -182,6 +182,12 @@ curl -s  http://localhost:6060/debug/pprof/profile > cpu.prof
 go tool pprof -png cpu.prof > cpu.prof.png
 ```
 
+Webで見る場合は以下のコマンドを実行する
+
+```
+go tool pprof -http="192.168.33.10:8089" localhost:6060
+```
+
 ### ベンチマークのmakeが動かない時
 
 以下のコマンドを実行
