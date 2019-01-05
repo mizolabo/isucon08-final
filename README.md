@@ -173,15 +173,13 @@ pprofを使用したwebサービスの稼働状況のプロファイリングが
 ベンチマークを実行後、以下のコマンドを実行する
 
 ```
-go tool pprof http://localhost:6060/debug/pprof/profile
-# exitで抜ける
+curl -s  http://localhost:6060/debug/pprof/profile > cpu.prof
 ```
 
 作成されたファイルを見やすくするために画像に変換する
 
 ```
-go tool pprof -png ~/pprof/pprof.main.samples.cpu.001.pb.gz > pprof.png
-# 001の部分は実行毎にインクリメントされていく
+go tool pprof -png cpu.prof > cpu.prof.png
 ```
 
 ### ベンチマークのmakeが動かない時
