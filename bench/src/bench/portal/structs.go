@@ -49,10 +49,10 @@ func (j *Job) Setup() error {
 		return errors.Errorf("invalid team id %s", _team)
 	}
 	team = team - 1 // bench subnet - 1
-	j.TargetURL = fmt.Sprintf("https://b%s-%d.%s", num, team, Domain)
-	j.BankURL = fmt.Sprintf("https://bank-%d.%s", team, Domain)
-	j.LogURL = fmt.Sprintf("https://logger-%d.%s", team, Domain)
-	j.InternalBankURL = fmt.Sprintf("https://bank-%d.%s", team, Domain)
-	j.InternalLogURL = fmt.Sprintf("https://loggerp-%d.%s", team, Domain)
+	j.TargetURL = fmt.Sprintf("http://b%s-%d.%s", num, team, Domain)
+	j.BankURL = fmt.Sprintf("http://bank-%d.%s", team, Domain)
+	j.LogURL = fmt.Sprintf("http://logger-%d.%s", team, Domain)
+	j.InternalBankURL = fmt.Sprintf("http://bank-%d.%s", team, Domain)
+	j.InternalLogURL = fmt.Sprintf("http://loggerp-%d.%s", team, Domain)
 	return nil
 }
